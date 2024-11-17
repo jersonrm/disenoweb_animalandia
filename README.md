@@ -42,7 +42,7 @@ Para ejecutar la aplicación en modo de desarrollo:
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3001) en tu navegador para ver la página.
+Abre [http://localhost:3001](http://localhost:3001) en tu navegador para ver la página.
 
 ## Construyendo para Producción
 

@@ -15,30 +15,30 @@ type Pet = {
 export default function AdoptPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'puppy' | 'young' | 'senior'>('all')
 
-  // Sample data - replace with your actual pet data
+
   const pets: Pet[] = [
     {
       id: 1,
       name: "Max",
-      age: "2 months",
+      age: "2 meses",
       category: "puppy",
-      imageUrl: "/placeholder.svg?height=300&width=300"
+      imageUrl: "/pets/max.jpg"
     },
     {
       id: 2,
       name: "Luna",
-      age: "1 year",
+      age: "1 año",
       category: "young",
-      imageUrl: "/placeholder.svg?height=300&width=300"
+      imageUrl: "/pets/luna.jpg"
     },
     {
       id: 3,
       name: "Rocky",
-      age: "8 years",
+      age: "8 años",
       category: "senior",
-      imageUrl: "/placeholder.svg?height=300&width=300"
+      imageUrl: "/pets/rocky.jpg"
     },
-    // Add more pets as needed
+ 
   ]
 
   const filteredPets = activeFilter === 'all' 
@@ -63,7 +63,7 @@ export default function AdoptPage() {
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px]">
         <Image
-          src="/placeholder.svg?height=800&width=1200"
+          src="/background_hero.jpg"
           alt="Happy dog"
           fill
           style={{ objectFit: "cover" }}
@@ -149,7 +149,7 @@ export default function AdoptPage() {
                     href={`/adopta/${pet.id}`}
                     className="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                   >
-                    Learn More
+                    Conóceme
                   </Link>
                 </div>
               </div>

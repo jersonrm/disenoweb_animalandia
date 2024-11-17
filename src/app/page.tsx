@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function BasicLandingPage() {
   return (
@@ -18,11 +19,13 @@ export default function BasicLandingPage() {
       </header>
 
       <main className="flex-grow">
-        <section className="relative h-[50vh] min-h-[400px]">
-          <img
-            src="/placeholder.svg?height=800&width=1200"
-            alt="Happy rescued animals"
-            className="w-full h-full object-cover"
+        <section className="relative h-[40vh] min-h-[300px]">
+          <Image
+            src="/background_hero.jpg"
+            alt="Happy dog"
+            fill
+            style={{ objectFit: "cover" }}
+            priority
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center text-white">
@@ -40,7 +43,7 @@ export default function BasicLandingPage() {
 
         <section className="py-12">
           <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+            <h2 className="text-2xl font-bold mb-4">Nuestra Misión</h2>
             <p>
             Nos dedicamos a rescatar y proteger animales necesitados. A través de la atención médica,
             rehabilitación y amor, les damos una segunda oportunidad en la vida y les ayudamos a encontrar

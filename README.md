@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Página de Inicio de la Fundación de Rescate Animal
 
-## Getting Started
+## Descripción
 
-First, run the development server:
+Este proyecto es una página de inicio para una Fundación de Rescate Animal. Está construido usando Next.js y Tailwind CSS, proporcionando un diseño simple y responsivo para mostrar la misión, servicios y formas de involucrarse con la fundación.
 
-```bash
+## Características
+
+- Diseño responsivo
+- Información sobre la misión de la fundación
+- Secciones para adopción, donación y voluntariado
+- Información de contacto básica
+
+## Requisitos Previos
+
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
+- Node.js (versión 14 o posterior)
+- npm (generalmente viene con Node.js)
+
+## Instalación
+
+1. Clona el repositorio:
+   ```
+   git clone https://github.com/jersonrm/disenoweb_animalandia.git
+   ```
+
+2. Navega al directorio del proyecto:
+   ```
+   cd disenoweb_animalandia
+   ```
+
+3. Instala las dependencias:
+   ```
+   npm install
+   ```
+
+## Ejecutando la Aplicación
+
+Para ejecutar la aplicación en modo de desarrollo:
+
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la página.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Construyendo para Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para crear una versión de producción:
 
-## Learn More
+```
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Para iniciar el servidor de producción:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Personalización
 
-## Deploy on Vercel
+- Actualiza el contenido en `pages/index.tsx` para que coincida con la información de tu fundación.
+- Modifica los estilos en `styles/globals.css` para cambiar el aspecto general.
+- Ajusta el componente `Button` en `components/ui/Button.tsx` para estilos de botones personalizados.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contribuyendo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENSE para más detalles.
+
+## Contacto
+
+Tu Nombre - tu.email@example.com
+
+Enlace del Proyecto: [https://github.com/jersonrm/disenoweb_animalandia](https://github.com/jersonrm/disenoweb_animalandia)

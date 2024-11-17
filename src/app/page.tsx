@@ -8,23 +8,33 @@ export default function BasicLandingPage() {
           <h1 className="text-2xl font-bold">Animalandia Centro de Rescate Animal</h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><Link href="#" className="hover:underline">Inicio</Link></li>
-              <li><Link href="#" className="hover:underline">Adopta</Link></li>
-              <li><Link href="#" className="hover:underline">Donaciones</Link></li>
-              <li><Link href="#" className="hover:underline">Contacto</Link></li>
+              <li><Link href="/" className="hover:underline">Inicio</Link></li>
+              <li><Link href="/adopta" className="hover:underline">Adopta</Link></li>
+              <li><Link href="/donaciones" className="hover:underline">Donaciones</Link></li>
+              <li><Link href="/contacto" className="hover:underline">Contacto</Link></li>
             </ul>
           </nav>
         </div>
       </header>
 
       <main className="flex-grow">
-        <section className="bg-gray-200 py-12">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Bienvenidos a la web de rescate animal</h2>
-            <p className="mb-6">Rescatamos, rehabilitamos, y reubicamos a peluditos en necesidad.</p>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-              Adopta una mascota
-            </button>
+        <section className="relative h-[50vh] min-h-[400px]">
+          <img
+            src="/placeholder.svg?height=800&width=1200"
+            alt="Happy rescued animals"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="text-center text-white">
+              <h2 className="text-4xl font-bold mb-4">Bienvenido a Animalandia</h2>
+              <p className="mb-6 text-xl">Rescatamos, rehabilitamos, y reubicamos animales sin hogar.</p>
+              <Link 
+                href="/adopta" 
+                className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition duration-300"
+              >
+                Adopta una mascota
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -48,9 +58,12 @@ export default function BasicLandingPage() {
               <li>Sé voluntario</li>
               <li>Sirve de hogar de paso</li>
             </ul>
-            <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            <Link 
+              href="/donaciones" 
+              className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            >
               Dona ahora
-            </button>
+            </Link>
           </div>
         </section>
       </main>

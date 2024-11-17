@@ -42,7 +42,7 @@ Para ejecutar la aplicación en modo de desarrollo:
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la página.
+Abre [http://localhost:3000](http://localhost:3001) en tu navegador para ver la página.
 
 ## Construyendo para Producción
 
@@ -60,8 +60,8 @@ npm start
 
 ## Personalización
 
-- Actualiza el contenido en `pages/index.tsx` para que coincida con la información de tu fundación.
-- Modifica los estilos en `styles/globals.css` para cambiar el aspecto general.
+- Actualiza el contenido en `src/page.tsx` para que coincida con la información de tu fundación.
+- Modifica los estilos en `src/globals.css` para cambiar el aspecto general.
 - Ajusta el componente `Button` en `components/ui/Button.tsx` para estilos de botones personalizados.
 
 ## Contribuyendo

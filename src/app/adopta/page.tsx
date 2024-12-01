@@ -1,49 +1,34 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import PetList from './PetList'
 
 type Pet = {
   id: number
   name: string
   age: string
-  category: 'puppy' | 'young' | 'senior'
+  category: string
+  type: string
   imageUrl: string
 }
 
-export default function AdoptPage() {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'puppy' | 'young' | 'senior'>('all')
+async function getPets() {
+  try {
+    const res = await fetch('http://localhost:3001/api/pets', { 
+      next: { revalidate: 60 },
+      cache: 'no-store'
+    })
+    if (!res.ok) {
+      throw new Error('Failed to fetch pets')
+    }
+    return res.json()
+  } catch (error) {
+    console.error('Error fetching pets:', error)
+    return [] // Return an empty array if there's an error
+  }
+}
 
-
-  const pets: Pet[] = [
-    {
-      id: 1,
-      name: "Max",
-      age: "2 meses",
-      category: "puppy",
-      imageUrl: "/pets/max.jpg"
-    },
-    {
-      id: 2,
-      name: "Luna",
-      age: "1 año",
-      category: "young",
-      imageUrl: "/pets/luna.jpg"
-    },
-    {
-      id: 3,
-      name: "Rocky",
-      age: "8 años",
-      category: "senior",
-      imageUrl: "/pets/rocky.jpg"
-    },
- 
-  ]
-
-  const filteredPets = activeFilter === 'all' 
-    ? pets 
-    : pets.filter(pet => pet.category === activeFilter)
+export default async function AdoptPage() {
+  const pets = await getPets()
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -82,79 +67,15 @@ export default function AdoptPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-4">Mascotas disponibles para adopción</h2>
           <p className="mb-8">
-          Estos son nuestros ángeles que buscan su hogar definitivo. Una vez que elijas tu futura mascota,
-          Revisa nuestros requisitos de adopción y complete el formulario de adopción.
+            Estos son nuestros ángeles que buscan su hogar definitivo. Una vez que elijas tu futura mascota,
+            revisa nuestros requisitos de adopción y completa el formulario de adopción.
           </p>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap gap-4 mb-8">
-            <button
-              onClick={() => setActiveFilter('all')}
-              className={`px-4 py-2 rounded ${
-                activeFilter === 'all' 
-                  ? 'bg-blue-500 text-white' 
-                  : 'bg-gray-200 hover:bg-gray-300'
-              }`}
-            >
-              Todos
-            </button>
-            <button
-              onClick={() => setActiveFilter('puppy')}
-              className={`px-4 py-2 rounded ${
-                activeFilter === 'puppy' 
-                  ? 'bg-blue-500 text-white' 
-                  : 'bg-gray-200 hover:bg-gray-300'
-              }`}
-            >
-              Cachorros
-            </button>
-            <button
-              onClick={() => setActiveFilter('young')}
-              className={`px-4 py-2 rounded ${
-                activeFilter === 'young' 
-                  ? 'bg-blue-500 text-white' 
-                  : 'bg-gray-200 hover:bg-gray-300'
-              }`}
-            >
-              Jovenes
-            </button>
-            <button
-              onClick={() => setActiveFilter('senior')}
-              className={`px-4 py-2 rounded ${
-                activeFilter === 'senior' 
-                  ? 'bg-blue-500 text-white' 
-                  : 'bg-gray-200 hover:bg-gray-300'
-              }`}
-            >
-              Abuelitos
-            </button>
-          </div>
-
-          {/* Pet Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {filteredPets.map((pet) => (
-              <div key={pet.id} className="border rounded-lg overflow-hidden">
-                <div className="relative h-48">
-                  <Image
-                    src={pet.imageUrl}
-                    alt={pet.name}
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold">{pet.name}</h3>
-                  <p className="text-gray-600">{pet.age}</p>
-                  <Link 
-                    href={`/adopta/${pet.id}`}
-                    className="mt-2 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                  >
-                    Conóceme
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          {pets.length > 0 ? (
+            <PetList pets={pets} />
+          ) : (
+            <p>No hay mascotas disponibles en este momento. Por favor, vuelve a revisar más tarde.</p>
+          )}
         </div>
       </main>
     </div>

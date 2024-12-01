@@ -20,11 +20,28 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
+    if (formData.name.trim() === '' || formData.email.trim() === '' || formData.message.trim() === '') {
+      alert('Por favor, rellena todos los campos');
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      alert('Por favor, introduce un email válido');
+      return;
+    }
+
     // Here you would typically send the form data to your server
     console.log('Form submitted:', formData)
     // Reset form after submission
     setFormData({ name: '', email: '', message: '' })
-    alert('Thank you for your message. We will get back to you soon!')
+    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.')
+  }
+
+  // Función para validar email
+  function isValidEmail(email: string) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
   }
 
   return (
@@ -87,7 +104,7 @@ export default function ContactPage() {
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
               >
                 Enviar mensaje
               </button>

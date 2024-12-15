@@ -44,6 +44,10 @@ npm run dev
 
 Abre [http://localhost:3001](http://localhost:3001) en tu navegador para ver la página.
 
+Para validar JSON con datos de las mascotas:
+
+Abre [http://localhost:3001/api/pets](http://localhost:3001/api/pets) en tu navegador para ver la página.
+
 ## Construyendo para Producción
 
 Para crear una versión de producción:
@@ -74,6 +78,6 @@ Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENS
 
 ## Contacto
 
-Tu Nombre - tu.email@example.com
+Tu Nombre - jersonjesusr@gmail.com
 
 Enlace del Proyecto: [https://github.com/jersonrm/disenoweb_animalandia](https://github.com/jersonrm/disenoweb_animalandia)

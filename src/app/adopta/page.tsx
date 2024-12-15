@@ -2,14 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import PetList from './PetList'
 
-type Pet = {
-  id: number
-  name: string
-  age: string
-  category: string
-  type: string
-  imageUrl: string
-}
+//type Pet = {
+//  id: number
+//  name: string
+//  age: string
+//  category: string
+//  type: string
+//  imageUrl: string
+//}
 
 async function getPets() {
   try {

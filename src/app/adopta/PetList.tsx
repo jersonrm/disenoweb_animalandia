@@ -76,8 +76,9 @@ export default function PetList({ pets }: { pets: Pet[] }) {
                 alt={`${pet.name} - ${pet.type}`}
                 fill
                 style={{ objectFit: "cover" }}
-                onError={(e: any) => {
-                  e.target.src = "/placeholder.svg?height=300&width=300"
+                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "/placeholder.svg?height=300&width=300";
                 }}
               />
             </div>

@@ -2,28 +2,30 @@ import Image from "next/image"
 import Link from "next/link"
 import PetList from './PetList'
 
-//type Pet = {
-//  id: number
-//  name: string
-//  age: string
-//  category: string
-//  type: string
-//  imageUrl: string
-//}
+export const dynamic = 'force-dynamic';
+
+// type Pet = {
+//   id: number
+//   name: string
+//   age: string
+//   category: string
+//   type: string
+//   imageUrl: string
+// }
 
 async function getPets() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
   try {
-    const res = await fetch('http://localhost:3001/api/pets', { 
-      next: { revalidate: 60 },
-      cache: 'no-store'
-    })
+    const res = await fetch(`${apiUrl}/api/pets`, { 
+      next: { revalidate: 60 }
+    });
     if (!res.ok) {
-      throw new Error('Failed to fetch pets')
+      throw new Error('Failed to fetch pets');
     }
-    return res.json()
+    return res.json();
   } catch (error) {
-    console.error('Error fetching pets:', error)
-    return [] // Return an empty array if there's an error
+    console.error('Error fetching pets:', error);
+    return [];
   }
 }
 
@@ -71,13 +73,18 @@ export default async function AdoptPage() {
             revisa nuestros requisitos de adopción y completa el formulario de adopción.
           </p>
 
-          {pets.length > 0 ? (
-            <PetList pets={pets} />
-          ) : (
-            <p>No hay mascotas disponibles en este momento. Por favor, vuelve a revisar más tarde.</p>
-          )}
+        {pets.length > 0 ? (
+          <PetList pets={pets} />
+        ) : pets.length === 0 ? (
+          <p>No hay mascotas disponibles en este momento. Por favor, vuelve a revisar más tarde.</p>
+        ) : (
+          <p className="text-red-500">Hubo un error al cargar las mascotas. Por favor, intenta de nuevo más tarde.</p>
+        )}
         </div>
       </main>
+      <footer className="bg-gray-100 p-4 text-center">
+        <p>&copy; 2024 Animalandia Centro de Rescate Animal. Todos los derechos reservados.</p>
+      </footer>
     </div>
   )
 }

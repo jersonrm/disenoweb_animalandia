@@ -41,8 +41,14 @@ Para ejecutar la aplicación en modo de desarrollo:
 ```
 npm run dev
 ```
+![image](https://github.com/user-attachments/assets/44e33e6d-4290-4c34-99cc-ac91c8d5ff69)
+![image](https://github.com/user-attachments/assets/0403b272-4e8f-4294-a669-2ebdbd621af0)
+
 
 Abre [http://localhost:3001](http://localhost:3001) en tu navegador para ver la página.
+
+![image](https://github.com/user-attachments/assets/bf2494f6-2bc3-4d91-8513-51ef943eefa1)
+
 
 Para validar JSON con datos de las mascotas:
 
@@ -86,6 +92,8 @@ Sigue estos pasos para desplegar tu proyecto en Vercel:
    - Crea un archivo `.env.local` en la raíz de tu proyecto si aún no lo tienes.
    - Añade las variables de entorno necesarias, por ejemplo:
      `NEXT_PUBLIC_API_URL=https://tu-api-url.com`
+     ![image](https://github.com/user-attachments/assets/00af80d3-30d7-4eae-8a17-07f09c9d3995)
+
 
 5. Despliega usando Vercel CLI:
    - En el directorio de tu proyecto, ejecuta: `vercel`
@@ -103,7 +111,9 @@ Sigue estos pasos para desplegar tu proyecto en Vercel:
 7. Finaliza el despliegue:
    - Vercel detectará automáticamente tu proyecto Next.js y aplicará la configuración de construcción apropiada.
    - Haz clic en "Deploy" y espera a que el proceso se complete.
+  ![image](https://github.com/user-attachments/assets/599e4ac4-6eab-4d2c-a103-5b1a309b5bc6)
 
+   
 8. Configura un dominio personalizado (opcional):
    - En el panel de control de tu proyecto en Vercel, ve a "Settings" > "Domains"
    - Añade tu dominio personalizado y sigue las instrucciones para configurar los registros DNS.
